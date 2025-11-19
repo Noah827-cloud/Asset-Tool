@@ -1,0 +1,5 @@
+[global]
+# 默认使用阿里云镜像，可根据实际情况替换为公司内网或其他镜像
+index-url = https://mirrors.aliyun.com/pypi/simple/
+trusted-host = mirrors.aliyun.com
+# proxy = http://user:password@proxy-host:port

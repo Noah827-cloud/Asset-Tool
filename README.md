@@ -11,6 +11,23 @@
 
 ## 安装依赖
 
+在受限网络中 `pip install -r requirements.txt` 可能会提示 *Cannot connect to
+proxy*。可以按以下方式解决：
+
+1. **配置可访问的 PyPI 镜像或代理**：仓库内提供了
+   [`pip.conf.example`](pip.conf.example) 和 `scripts/setup_pip_mirror.sh`。执行
+   `scripts/setup_pip_mirror.sh` 会把示例配置复制到 `~/.config/pip/pip.conf`
+  （或 `$PIP_CONFIG_DIR/pip.conf`），随后根据实际网络修改 `index-url`、
+   `trusted-host`、`proxy` 等字段。
+2. **完全离线安装**：在有网络的机器上下载 `requirements.txt` 中列出的
+   wheel 包并拷贝到 `vendor/wheels`，然后运行
+
+   ```bash
+   pip install --no-index --find-links vendor/wheels -r requirements.txt
+   ```
+
+准备好网络配置后即可安装依赖：
+
 ```bash
 pip install -r requirements.txt
 ```
